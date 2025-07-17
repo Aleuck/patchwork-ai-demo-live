@@ -61,7 +61,28 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Patchwork theme colors
+				teal: {
+					light: 'hsl(var(--teal-light))',
+					medium: 'hsl(var(--teal-medium))',
+					dark: 'hsl(var(--teal-dark))'
+				},
+				amber: {
+					light: 'hsl(var(--amber-light))',
+					medium: 'hsl(var(--amber-medium))',
+					dark: 'hsl(var(--amber-dark))'
 				}
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-accent': 'var(--gradient-accent)',
+				'gradient-subtle': 'var(--gradient-subtle)'
+			},
+			boxShadow: {
+				'soft': 'var(--shadow-soft)',
+				'medium': 'var(--shadow-medium)',
+				'strong': 'var(--shadow-strong)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
