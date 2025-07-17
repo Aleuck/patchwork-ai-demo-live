@@ -16,6 +16,7 @@ const BudgetEstimate = ({ serviceRequest, onComplete }: BudgetEstimateProps) => 
   const [isEditing, setIsEditing] = useState(false);
   const [editedDescription, setEditedDescription] = useState("");
   const [loading, setLoading] = useState(true);
+  const [completed, setCompleted] = useState(false);
 
   useEffect(() => {
     // Simulate AI processing
@@ -76,10 +77,13 @@ const BudgetEstimate = ({ serviceRequest, onComplete }: BudgetEstimateProps) => 
   };
 
   const handleContinue = () => {
-    onComplete({
-      estimate,
-      finalDescription: editedDescription
-    });
+    setCompleted(true);
+    setTimeout(() => {
+      onComplete({
+        estimate,
+        finalDescription: editedDescription
+      });
+    }, 1000);
   };
 
   if (loading) {
@@ -184,9 +188,15 @@ const BudgetEstimate = ({ serviceRequest, onComplete }: BudgetEstimateProps) => 
               )}
             </div>
 
-            <div className="flex justify-end">
-              <Button onClick={handleContinue} className="bg-primary">
-                Continue to Team Matching
+            <div className="flex justify-end items-center gap-3">
+              {completed && (
+                <div className="flex items-center gap-2 text-green-600">
+                  <Check className="w-5 h-5" />
+                  <span className="text-sm font-medium">Step Completed</span>
+                </div>
+              )}
+              <Button onClick={handleContinue} disabled={completed} className="bg-primary">
+                {completed ? "Proceeding..." : "Continue to Team Matching"}
               </Button>
             </div>
           </CardContent>

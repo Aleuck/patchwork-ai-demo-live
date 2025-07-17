@@ -74,7 +74,10 @@ const Dashboard = ({ serviceRequest }: DashboardProps) => {
             <h1 className="text-3xl font-bold">Welcome back!</h1>
             <p className="text-muted-foreground">Here's what's happening with your projects</p>
           </div>
-          <Button className="bg-primary">
+          <Button 
+            className="bg-primary"
+            onClick={() => window.location.reload()}
+          >
             <Plus className="w-4 h-4 mr-2" />
             New Request
           </Button>
